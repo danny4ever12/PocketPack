@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">pocket</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="NewPerson">Add new person</string>
+    <string name="MoneyTab">Money Tab</string>
+    <string name="KnowMe">Know Me</string>
+    <string name="title_activity_add_person">Add Person</string>
+    <string name="title_activity_money_tab">Money Tab</string>
+    <string name="title_activity_about_me">About Me</string>
+    <string name="title_activity_account_no">Connect with me:)</string>
+    <string name="enterName">enter name</string>
+    <string name="give">You gave</string>
+    <string name="borrow">you borrowed</string>
+    <string name="done">done</string>
+    <string name="title_activity_password_enter">Login</string>
+    <string name="go">go</string>
+    <string name="title_activity_user_passwords">UserPasswords</string>
+    <string name="title_activity_error">Error</string>
+    <string name="TryAgain">try again</string>
+    <string name="title_activity_sub_add_person">Add person details</string>
+    <string name="EnterName">Enter Name</string>
+    <string name="FirstNameLastName">FirstName LastName</string>
+    <string name="YouDebited">You debited</string>
+    <string name="money">money</string>
+    <string name="YouGave">You gave</string>
+    <string name="Enterdetails">done</string>
+    <string name="fb">facebook</string>
+    <string name="googleplus">googleplus</string>
+    <string name="linkedin">linkedin</string>
+    <string name="twitter">twitter</string>
+    <string name="coffee">connect with me</string>
+    <string name="UserName">User name</string>
+    <string name="Password">Password</string>
+    <string name="title_activity_email_enter">EmailEnter</string>
+    <string name="email">email</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_update_pass">UpdatePass</string>
+    <string name="title_activity_change_mail">ChangeMail</string>
+    <string name="enter_mail_address">Enter your current email address</string>
+    <string name="Settings">Settings</string>
+    <string name="CurrentUserName">Enter current username</string>
+    <string name="CurrentPassword">Enter current password</string>
+    <string name="NewUserName">Enter new user name</string>
+    <string name="NewPassword">Enter new password</string>
+    <string name="DailyExpense">Your daily expenses</string>
+    <string name="title_activity_daily_expense">DailyExpense</string>
+    <string name="forgot_psswrd">forgot password?</string>
+    <string name="zero">0</string>
+    <string name="date">date</string>
+    <string name="tab">tab</string>
+    <string name="Rs">Rs </string>
+    <string name="empty"> </string>
+
+</resources>

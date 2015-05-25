@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.pocket.SubAddPerson" >
+
+    <TextView
+        android:id="@+id/Subname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="24dp"
+        android:text="@string/EnterName"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+     <EditText
+         android:id="@+id/SnameEnter"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignRight="@+id/DetailsButton"
+         android:layout_below="@+id/Subname"
+         android:hint="@string/FirstNameLastName" />
+     
+      <TextView
+        android:id="@+id/YouGave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/DebitMoney"
+        android:layout_centerVertical="true"
+        android:text="@string/YouGave"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/gaveEnter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/YouGave"
+        android:ems="10"
+        android:hint="@string/money"/>
+
+    <TextView
+        android:id="@+id/borrowd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/SnameEnter"
+        android:layout_below="@+id/SnameEnter"
+        android:layout_marginTop="36dp"
+        android:text="@string/YouDebited"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+     <EditText
+         android:id="@+id/DebitMoney"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignRight="@+id/gaveEnter"
+         android:layout_below="@+id/borrowd"
+         android:ems="10"
+         android:hint="@string/money" />
+
+    <Button
+        android:id="@+id/DetailsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gaveEnter"
+        android:layout_marginTop="41dp"
+        android:text="@string/Enterdetails" />
+
+</RelativeLayout>
