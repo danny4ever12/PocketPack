@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.pocket.AddDaily" >
+
+    <TextView
+        android:id="@+id/dt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="22dp"
+        android:text="@string/title"
+        android:textSize="@dimen/text_size"/>
+
+    <EditText
+        android:id="@+id/daily_occtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/dt1"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/dt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/daily_occtn"
+        android:layout_below="@+id/daily_occtn"
+        android:layout_marginTop="20dp"
+        android:text="@string/spent" 
+        android:textSize="@dimen/text_size"/>
+    
+     <EditText
+        android:id="@+id/dailygive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/dt2"
+        android:hint="@string/money"
+        android:inputType="number|numberSigned|numberDecimal"
+        android:text="@string/zero" />
+     
+      <TextView
+          android:id="@+id/dt3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/dailygive"
+          android:layout_below="@+id/dailygive"
+          android:layout_marginTop="20dp"
+          android:text="@string/got" 
+          android:textSize="@dimen/text_size"/>
+      
+      <EditText
+        android:id="@+id/dailygot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/dt3"
+        android:hint="@string/money"
+        android:inputType="number|numberSigned|numberDecimal"
+        android:text="@string/zero" />
+
+      <Button
+          android:id="@+id/dlydnebtn"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/dailygot"
+          android:layout_below="@+id/dailygot"
+          android:layout_marginTop="20dp"
+          android:text="@string/done" />
+
+</RelativeLayout>

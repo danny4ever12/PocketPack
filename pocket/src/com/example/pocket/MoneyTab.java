@@ -8,6 +8,7 @@ import com.example.pocket.DATA_TABLE.TableInfo;
 import android.annotation.SuppressLint;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,8 +17,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MoneyTab extends ListActivity {
    //for checkbox
@@ -26,7 +30,7 @@ public class MoneyTab extends ListActivity {
 	DBoperations DOP;
 	MoneytabAdapter myAdapter;
 	ArrayList<MyDiary> diaries;
-	
+	Context ctx=this;
 	private class MyDiary{
 	
 		
@@ -56,10 +60,22 @@ public class MoneyTab extends ListActivity {
 	}
 	
 
-		private class MoneytabAdapter extends BaseAdapter {
+    private class MoneytabAdapter extends BaseAdapter implements ListAdapter{
 			private LayoutInflater mInflater;
 			 ArrayList<MyDiary> diaries;
-			
+			 @SuppressWarnings("unused")
+			private ArrayList<String> list = new ArrayList<String>(); 
+			 @SuppressWarnings("unused")
+			private Context context; 
+			 
+			 //for button
+			 @SuppressWarnings("unused")
+			public MoneytabAdapter(ArrayList<String> list, Context context) { 
+				    this.list = list; 
+				    this.context = context; 
+				}
+			//
+			 
 			public MoneytabAdapter(Context context) {
 			   mInflater = LayoutInflater.from(context);
 			   diaries = new ArrayList<MyDiary>();
@@ -82,7 +98,7 @@ public class MoneyTab extends ListActivity {
 		        	float debt = CR.getFloat(CR.getColumnIndex(TableInfo.MONEY));
 		        	String dttm = CR.getString(CR.getColumnIndex(TableInfo.DATETIME));
 		        	MyDiary temp = new MyDiary(name,debt,dttm);
-		        	diaries.add(temp);
+	 	        	diaries.add(temp);
 		        	
 		         }while(CR.moveToNext());
 				
@@ -93,8 +109,11 @@ public class MoneyTab extends ListActivity {
 		public MyDiary getItem(int i) {return diaries.get(i);}
 		public long getItemId(int i) {return i;}
 		@SuppressLint("InflateParams")
-		public View getView(int arg0, View arg1, ViewGroup arg2) {
+		
+		
+		public View getView(final int arg0, View arg1, ViewGroup arg2) {
 		final ViewHolder holder;
+		
 		View v = arg1;
 		if ((v == null) || (v.getTag() == null)) {
 		     v = mInflater.inflate(R.layout.money_tab_format, null);
@@ -102,11 +121,41 @@ public class MoneyTab extends ListActivity {
 		     holder.mName = (TextView)v.findViewById(R.id.name);
 		     holder.mny=(TextView)v.findViewById(R.id.debt);
 		     holder.mDate = (TextView)v.findViewById(R.id.datetext);
-		    
+		     holder.deleteBtn = (Button)v.findViewById(R.id.br2);
+			 holder.modBtn = (Button)v.findViewById(R.id.br1);
 		     v.setTag(holder);
-		} else {
+		}
+		else {
 			holder = (ViewHolder) v.getTag();
 		}
+		
+		 
+		 
+		 holder.deleteBtn.setOnClickListener(new View.OnClickListener(){
+		        @Override
+		        public void onClick(View v) { 
+		            
+		            diaries.remove(arg0);
+		            
+		          DBoperations DB = new DBoperations(ctx);
+		          @SuppressWarnings("unused")
+				int k=  DB.deleteDebt(DB,holder.mdiary.recorddate);
+		            notifyDataSetChanged();
+		            Toast.makeText(ctx, "Person deleted ", Toast.LENGTH_LONG).show();
+		        }
+		    });
+		    holder.modBtn.setOnClickListener(new View.OnClickListener(){
+		        @Override
+		        public void onClick(View v) { 
+		            String temp=holder.mdiary.recorddate;
+		            String tval=holder.mdiary.val;
+		            Intent launchUp=new Intent(ctx,Update_Debt.class);
+		            launchUp.putExtra("DTM", temp);
+		            launchUp.putExtra("MSND", tval);
+		            startActivity(launchUp);
+		        }
+		    });
+
 		
 		holder.mdiary = getItem(arg0);
 		holder.mName.setText(holder.mdiary.name+"        ");
@@ -120,6 +169,8 @@ public class MoneyTab extends ListActivity {
 		TextView mName;
 		TextView mny;
 		TextView mDate;
+		Button deleteBtn;
+		Button modBtn;
 		
 	}
 }

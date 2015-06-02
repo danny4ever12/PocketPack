@@ -1,0 +1,123 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            tools:context="com.example.pocket.UpdatePass" >
+
+            <TextView
+                android:id="@+id/noneed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="29dp"
+                android:text="@string/CurrentUserName"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="@dimen/text_size" />
+
+            <EditText
+                android:id="@+id/CurrentNm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/noneed"
+                android:layout_below="@+id/noneed"
+                android:ems="10"
+                android:hint="@string/UserName" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/junk3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/CurrentNm"
+                android:layout_below="@+id/CurrentNm"
+                android:layout_marginTop="32dp"
+                android:hint="@string/UserName"
+                android:text="@string/CurrentPassword"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="@dimen/text_size" />
+
+            <EditText
+                android:id="@+id/CurrentPss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/junk3"
+                android:layout_below="@+id/junk3"
+                android:ems="10"
+                android:hint="@string/Password"
+                android:inputType="textPassword" />
+
+       
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/CurrentPss"
+        android:layout_below="@+id/CurrentPss"
+        android:layout_marginTop="32dp"
+        android:text="@string/NewUserName"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="@dimen/text_size" />
+
+    <EditText
+        android:id="@+id/NewUserEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:ems="10"
+        android:hint="@string/UserName" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/NewUserEdit"
+        android:layout_below="@+id/NewUserEdit"
+        android:layout_marginTop="32dp"
+        android:text="@string/NewPassword"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="@dimen/text_size" />
+
+    <EditText
+        android:id="@+id/NewPss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:ems="10"
+        android:hint="@string/Password"
+        android:inputType="textPassword" >
+
+    </EditText>
+    
+    <Button
+        android:id="@+id/ChangePassStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/NewPss"
+        android:text="@string/done" />
+    
+     </RelativeLayout>
+   </ScrollView>
+
+  
+
+    
+
+</LinearLayout>

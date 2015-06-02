@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout13"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+    android:id="@+id/occatn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="@dimen/xd"
+    android:text="@string/tab"
+    android:textSize="@dimen/qd"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/rupee"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_toRightOf="@+id/occatn"
+    android:text="@string/Rs"
+    android:textSize="@dimen/qd"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/price"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_toRightOf="@+id/rupee"
+    android:text="@string/tab"
+    android:textSize="@dimen/qd"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/dtext"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/occatn"
+    android:text="@string/date"
+    android:textSize="@dimen/md" />
+
+<Button
+    android:id="@+id/dlybn1"
+    style="?android:attr/buttonStyleSmall"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginRight="28dp"
+    android:text="@string/delete" />
+
+</RelativeLayout>
