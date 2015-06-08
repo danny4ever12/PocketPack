@@ -1,8 +1,12 @@
 package com.example.pocket;
 
+import com.example.pocket.R.drawable;
+
 import android.support.v7.app.ActionBarActivity;
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,7 +31,13 @@ public class Update_Debt extends ActionBarActivity {
 	    retMSND=k.getStringExtra("MSND");
 	    getval=Float.valueOf(retMSND);
 	    
-	
+	    if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
+		{
+			ActionBar actionbar=getActionBar();
+			actionbar.setDisplayHomeAsUpEnabled(true);
+			actionbar.setHomeAsUpIndicator(drawable.action_previous);
+		}
+		
 	   
 	   
 		 give=(EditText)findViewById(R.id.upt1);
@@ -53,6 +63,7 @@ public class Update_Debt extends ActionBarActivity {
 			
 			
 			DBoperations DB=new DBoperations(ctx);
+			@SuppressWarnings("unused")
 			int k=DB.updateDebt(DB, retDTM, getval);
 			Toast.makeText(this, "debt list updated", Toast.LENGTH_LONG).show();
 			finish();
@@ -75,10 +86,16 @@ public class Update_Debt extends ActionBarActivity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+		switch (item.getItemId()) {
+        case android.R.id.home:
+            // app icon in action bar clicked; goto parent activity.
+            this.finish();
+            return true;
+        case R.id.action_settings:
+        	return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    
+	}	
 }

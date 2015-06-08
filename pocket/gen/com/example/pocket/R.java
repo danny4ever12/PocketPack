@@ -1084,37 +1084,34 @@ containing a value of this type.
         public static final int abc_textfield_searchview_holo_light=0x7f020054;
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
-        public static final int button_selector=0x7f020057;
-        public static final int coffeeback1=0x7f020058;
-        public static final int coffeeback2=0x7f020059;
-        public static final int fcbk=0x7f02005a;
-        public static final int gplus=0x7f02005b;
-        public static final int ic_launcher=0x7f02005c;
-        public static final int lb=0x7f02005d;
-        public static final int lnkdin=0x7f02005e;
-        public static final int twitter=0x7f02005f;
-        public static final int violetback=0x7f020060;
-        public static final int wallback=0x7f020061;
+        public static final int action_previous=0x7f020057;
+        public static final int actionback2=0x7f020058;
+        public static final int button_selector=0x7f020059;
+        public static final int coffeeback1=0x7f02005a;
+        public static final int coffeeback2=0x7f02005b;
+        public static final int fcbk=0x7f02005c;
+        public static final int gplus=0x7f02005d;
+        public static final int ic_launcher=0x7f02005e;
+        public static final int lb=0x7f02005f;
+        public static final int lnkdin=0x7f020060;
+        public static final int twitter=0x7f020061;
+        public static final int violetback=0x7f020062;
+        public static final int wallback=0x7f020063;
     }
     public static final class id {
         public static final int ChangeMailStart=0x7f090056;
-        public static final int ChangePassStart=0x7f09007c;
-        public static final int CurrentNm=0x7f090075;
-        public static final int CurrentPss=0x7f090077;
-        public static final int DailyXpenseStart=0x7f090065;
-        public static final int DebitMoney=0x7f09006c;
-        public static final int DetailsButton=0x7f09006a;
-        public static final int EmailDone=0x7f09005b;
-        public static final int EmailText=0x7f090059;
-        public static final int MailInput=0x7f09005a;
-        public static final int NewPss=0x7f09007b;
-        public static final int NewUserEdit=0x7f090079;
-        public static final int RelativeLayout1=0x7f09005c;
-        public static final int RelativeLayout13=0x7f09007d;
-        public static final int Setti=0x7f090067;
-        public static final int SnameEnter=0x7f090069;
-        public static final int Subname=0x7f090068;
-        public static final int YouGave=0x7f09006b;
+        public static final int ChangePassStart=0x7f090076;
+        public static final int CurrentNm=0x7f09006f;
+        public static final int CurrentPss=0x7f090071;
+        public static final int DailyXpenseStart=0x7f090066;
+        public static final int EmailDone=0x7f09005c;
+        public static final int EmailText=0x7f09005a;
+        public static final int MailInput=0x7f09005b;
+        public static final int NewPss=0x7f090075;
+        public static final int NewUserEdit=0x7f090073;
+        public static final int RelativeLayout1=0x7f09005d;
+        public static final int RelativeLayout13=0x7f090077;
+        public static final int Setti=0x7f090068;
         public static final int aboutText1=0x7f090044;
         public static final int accnotext1=0x7f09003e;
         public static final int action_bar=0x7f09001c;
@@ -1128,14 +1125,13 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f090002;
         public static final int action_menu_presenter=0x7f090003;
         public static final int action_mode_close_button=0x7f090024;
-        public static final int action_settings=0x7f09008e;
+        public static final int action_settings=0x7f090088;
         public static final int activity_chooser_view_content=0x7f090025;
         public static final int always=0x7f09000f;
         public static final int beginning=0x7f090016;
         public static final int borrow1=0x7f090052;
-        public static final int borrowd=0x7f09006e;
-        public static final int br1=0x7f090088;
-        public static final int br2=0x7f090087;
+        public static final int br1=0x7f090082;
+        public static final int br2=0x7f090081;
         public static final int changemailEdit=0x7f090055;
         public static final int checkbox=0x7f09002d;
         public static final int collapseActionView=0x7f090010;
@@ -1143,31 +1139,30 @@ containing a value of this type.
         public static final int daily_occtn=0x7f090047;
         public static final int dailygive=0x7f090049;
         public static final int dailygot=0x7f09004b;
-        public static final int datetext=0x7f090086;
+        public static final int datetext=0x7f090080;
         public static final int dbn=0x7f090057;
-        public static final int debt=0x7f090085;
+        public static final int debt=0x7f09007f;
         public static final int default_activity_button=0x7f090028;
         public static final int dialog=0x7f090014;
         public static final int disableHome=0x7f090009;
-        public static final int dlybn1=0x7f090082;
+        public static final int dlybn1=0x7f09007c;
         public static final int dlydnebtn=0x7f09004c;
         public static final int done1=0x7f090051;
         public static final int dropdown=0x7f090015;
-        public static final int dt=0x7f090089;
+        public static final int dt=0x7f090083;
         public static final int dt1=0x7f090046;
         public static final int dt2=0x7f090048;
         public static final int dt3=0x7f09004a;
-        public static final int dtext=0x7f090081;
+        public static final int dtext=0x7f09007b;
         public static final int edit_query=0x7f090030;
         public static final int end=0x7f090017;
-        public static final int enterName=0x7f090061;
-        public static final int enterPass=0x7f090060;
-        public static final int ert=0x7f09005e;
+        public static final int enterName=0x7f090062;
+        public static final int enterPass=0x7f090061;
+        public static final int ert=0x7f09005f;
         public static final int expand_activities_button=0x7f090026;
         public static final int expanded_menu=0x7f09002c;
         public static final int fb1=0x7f09003f;
-        public static final int forgtPsswrd=0x7f090062;
-        public static final int gaveEnter=0x7f09006d;
+        public static final int forgtPsswrd=0x7f090063;
         public static final int give1=0x7f090050;
         public static final int gotobn=0x7f090058;
         public static final int gplus1=0x7f090040;
@@ -1177,34 +1172,34 @@ containing a value of this type.
         public static final int ifRoom=0x7f090011;
         public static final int image=0x7f090027;
         public static final int imageBtn1=0x7f090045;
-        public static final int junk3=0x7f090076;
-        public static final int knowMe=0x7f090066;
+        public static final int junk3=0x7f090070;
+        public static final int knowMe=0x7f090067;
         public static final int listMode=0x7f090006;
         public static final int list_item=0x7f090029;
         public static final int lnkdin=0x7f090041;
-        public static final int mTab=0x7f090064;
+        public static final int mTab=0x7f090065;
         public static final int mailme=0x7f090043;
         public static final int middle=0x7f090018;
-        public static final int name=0x7f090083;
+        public static final int name=0x7f09007d;
         public static final int name1=0x7f09004e;
         public static final int never=0x7f090012;
-        public static final int newPerson=0x7f090063;
+        public static final int newPerson=0x7f090064;
         public static final int none=0x7f090019;
-        public static final int noneed=0x7f090074;
+        public static final int noneed=0x7f09006e;
         public static final int normal=0x7f090007;
         public static final int nouse=0x7f090054;
-        public static final int occatn=0x7f09007e;
-        public static final int ok=0x7f09005f;
-        public static final int pday=0x7f09008c;
-        public static final int pr=0x7f09008b;
-        public static final int prevbtn1=0x7f09008d;
-        public static final int price=0x7f090080;
+        public static final int occatn=0x7f090078;
+        public static final int ok=0x7f090060;
+        public static final int pday=0x7f090086;
+        public static final int pr=0x7f090085;
+        public static final int prevbtn1=0x7f090087;
+        public static final int price=0x7f09007a;
         public static final int progress_circular=0x7f090004;
         public static final int progress_horizontal=0x7f090005;
-        public static final int r=0x7f09008a;
+        public static final int r=0x7f090084;
         public static final int radio=0x7f09002f;
-        public static final int rs=0x7f090084;
-        public static final int rupee=0x7f09007f;
+        public static final int rs=0x7f09007e;
+        public static final int rupee=0x7f090079;
         public static final int scrollView1=0x7f09003c;
         public static final int search_badge=0x7f090032;
         public static final int search_bar=0x7f090031;
@@ -1223,20 +1218,21 @@ containing a value of this type.
         public static final int split_action_bar=0x7f09001e;
         public static final int submit_area=0x7f090039;
         public static final int tabMode=0x7f090008;
-        public static final int textView1=0x7f090078;
-        public static final int textView2=0x7f09007a;
+        public static final int textView1=0x7f090072;
+        public static final int textView2=0x7f090074;
         public static final int title=0x7f09002b;
         public static final int top_action_bar=0x7f090020;
-        public static final int tryButton=0x7f09005d;
+        public static final int totall=0x7f090059;
+        public static final int tryButton=0x7f09005e;
         public static final int twitter=0x7f090042;
         public static final int up=0x7f090021;
-        public static final int upbtn=0x7f090073;
-        public static final int upt1=0x7f090070;
-        public static final int upt2=0x7f090072;
+        public static final int upbtn=0x7f09006d;
+        public static final int upt1=0x7f09006a;
+        public static final int upt2=0x7f09006c;
         public static final int useLogo=0x7f09000e;
         public static final int withText=0x7f090013;
-        public static final int xborrow=0x7f090071;
-        public static final int xgive=0x7f09006f;
+        public static final int xborrow=0x7f09006b;
+        public static final int xgive=0x7f090069;
         public static final int xxxborrow=0x7f09004f;
         public static final int xxxgive=0x7f09004d;
         public static final int xxxname=0x7f090053;
@@ -1304,18 +1300,17 @@ containing a value of this type.
         public static final int activity_pocket=0x7f030022;
         public static final int activity_previous_days=0x7f030023;
         public static final int activity_settings=0x7f030024;
-        public static final int activity_sub_add_person=0x7f030025;
-        public static final int activity_update__debt=0x7f030026;
-        public static final int activity_update_pass=0x7f030027;
-        public static final int daily_expense_format=0x7f030028;
-        public static final int fragment_add_person=0x7f030029;
-        public static final int fragment_know_me=0x7f03002a;
-        public static final int fragment_money_tab=0x7f03002b;
-        public static final int fragment_password_enter=0x7f03002c;
-        public static final int fragment_pocket=0x7f03002d;
-        public static final int money_tab_format=0x7f03002e;
-        public static final int previous_days_format=0x7f03002f;
-        public static final int support_simple_spinner_dropdown_item=0x7f030030;
+        public static final int activity_update__debt=0x7f030025;
+        public static final int activity_update_pass=0x7f030026;
+        public static final int daily_expense_format=0x7f030027;
+        public static final int fragment_add_person=0x7f030028;
+        public static final int fragment_know_me=0x7f030029;
+        public static final int fragment_money_tab=0x7f03002a;
+        public static final int fragment_password_enter=0x7f03002b;
+        public static final int fragment_pocket=0x7f03002c;
+        public static final int money_tab_format=0x7f03002d;
+        public static final int previous_days_format=0x7f03002e;
+        public static final int support_simple_spinner_dropdown_item=0x7f03002f;
     }
     public static final class menu {
         public static final int about_me=0x7f0c0000;
@@ -1448,11 +1443,6 @@ containing a value of this type.
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
 
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
@@ -1468,7 +1458,8 @@ containing a value of this type.
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f0b008c;
+        public static final int AppTheme=0x7f0b008d;
+        public static final int MyActionBar=0x7f0b008c;
         /**  Mimic text appearance in select_dialog_item.xml 
          */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f0b0063;

@@ -1,8 +1,12 @@
 package com.example.pocket;
 
+import com.example.pocket.R.drawable;
+
 import android.support.v4.app.Fragment;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,6 +21,14 @@ public class Pocket extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pocket);
+		
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
+		{
+			ActionBar actionbar=getActionBar();
+			actionbar.setDisplayHomeAsUpEnabled(true);
+			actionbar.setHomeAsUpIndicator(drawable.action_previous);
+		}
+		
 
 		Button addPerson=(Button)findViewById(R.id.newPerson);
 		addPerson.setOnClickListener(new View.OnClickListener() {
@@ -109,12 +121,18 @@ public class Pocket extends Activity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+		switch (item.getItemId()) {
+        case android.R.id.home:
+            // app icon in action bar clicked; goto parent activity.
+            this.finish();
+            return true;
+        case R.id.action_settings:
+        	return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    
+	}	
 
 	/**
 	 * A placeholder fragment containing a simple view.

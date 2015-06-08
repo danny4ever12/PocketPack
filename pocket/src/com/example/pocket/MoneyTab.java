@@ -3,13 +3,16 @@ package com.example.pocket;
 import java.util.ArrayList;
 
 import com.example.pocket.DATA_TABLE.TableInfo;
+import com.example.pocket.R.drawable;
 
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -56,6 +59,14 @@ public class MoneyTab extends ListActivity {
 	    DOP=new DBoperations(this);
 	    myAdapter = new MoneytabAdapter(this);
 	    this.setListAdapter(myAdapter);
+	    
+	    if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
+		{
+			ActionBar actionbar=getActionBar();
+			actionbar.setDisplayHomeAsUpEnabled(true);
+			actionbar.setHomeAsUpIndicator(drawable.action_previous);
+		}
+		
 	   
 	}
 	
@@ -189,15 +200,17 @@ public class MoneyTab extends ListActivity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+		switch (item.getItemId()) {
+        case android.R.id.home:
+            // app icon in action bar clicked; goto parent activity.
+            this.finish();
+            return true;
+        case R.id.action_settings:
+        	return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    
+	}	
 
-	
-
-
-	
 }

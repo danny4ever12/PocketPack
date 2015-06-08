@@ -1,15 +1,22 @@
 package com.example.pocket;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import com.example.pocket.DATA_TABLE.TableInfo;
+import com.example.pocket.R.drawable;
 
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
+import android.app.AlarmManager;
 import android.app.ListActivity;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -26,19 +33,25 @@ import android.widget.Toast;
 public class DailyExpense extends ListActivity {
 	
 	ListView lv;
-	//
+	
 	DBoperations DOP;
 	MoneydailyAdapter myAdapter;
 	ArrayList<MymDiary> diaries;
+	
+	//for adding days total
+	private PendingIntent pendingIntent;
+	private AlarmManager manager;
+	
+				
 	Context ctx=this;
 	private class MymDiary{
 	
 		
 		public MymDiary(String n, float v,String r){
 		
-		name=n;
-		val=String.valueOf(v);
-		recorddate=r;
+		    name=n;
+		    val=String.valueOf(v);
+		    recorddate=r;
 		}
 		public String name;
 		public String val;
@@ -46,10 +59,28 @@ public class DailyExpense extends ListActivity {
 		
     }
 
+	TextView tv1;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_daily_expense);
+	    tv1=(TextView)findViewById(R.id.totall);
+	    
+	    totaltext();
+	   
+	    
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
+		{
+			ActionBar actionbar=getActionBar();
+			actionbar.setDisplayHomeAsUpEnabled(true);
+			actionbar.setHomeAsUpIndicator(drawable.action_previous);
+		}
+		
+		// Retrieve a PendingIntent that will perform a broadcast
+	    Intent alarmIntent = new Intent(this, DaysReceiver.class);
+	    pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent,  PendingIntent.FLAG_UPDATE_CURRENT);
+        startAlarm();		
+		
 		
 		    DOP=new DBoperations(this);
 		    
@@ -78,7 +109,37 @@ public class DailyExpense extends ListActivity {
 		    
 		    
 	}
+   public void totaltext(){
+	   DOP=new DBoperations(this);
+	   float tempsum;
+	    Cursor c= DOP.getSum(DOP);
+	    try{
+	    	c.moveToFirst();
+	        tempsum = c.getFloat(c.getColumnIndex(TableInfo.SUM));
+	       }
+       catch(Exception e){
+       	tempsum=0;
+       }
+	    tv1.setTextColor(Color.argb(255, 82, 26, 113)); 
+	    tv1.setBackgroundColor(Color.argb(50, 130, 234, 36));
+	    tv1.setText("total : Rs "+tempsum);
+   }
+	
+	//for inserting daystotal values
+	public void startAlarm() {
+	    manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+	    int interval = 86400000;
 
+	    Calendar calendar = Calendar.getInstance();
+		calendar.set(Calendar.HOUR_OF_DAY, 23);
+		calendar.set(Calendar.MINUTE, 59);
+		calendar.set(Calendar.SECOND, 00);
+		
+	    manager.set(AlarmManager.RTC,calendar.getTimeInMillis() , pendingIntent);
+	    Toast.makeText(this, "Daystotal  running", Toast.LENGTH_SHORT).show();
+	}
+	
+	
 	public void startbtn1()
 	{
 		Intent launchActivity=new Intent(this,AddDaily.class);
@@ -139,14 +200,8 @@ public class DailyExpense extends ListActivity {
 	        
 	          DOP.deleteSum(DOP);
 	          DOP.putSum(DOP, tempSum);
-	          
-	          
-	          //SAMPLE VALUES FOR TESTING
-		   //   DOP.putDaysTotal(DOP, tempSum);
-		      
-		      
-		      
-		      
+	          	      
+		      		            
 		   }
 	   }
 	@Override
@@ -223,7 +278,16 @@ public class DailyExpense extends ListActivity {
     }
 }
 	
-	
+    @Override
+    public void onResume(){
+    	super.onResume();
+    	totaltext();
+    }
+    @Override
+    public void onRestart(){
+    	super.onRestart();
+    	totaltext();
+    }
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -237,10 +301,17 @@ public class DailyExpense extends ListActivity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+		switch (item.getItemId()) {
+        case android.R.id.home:
+            // app icon in action bar clicked; goto parent activity.
+            this.finish();
+            return true;
+        case R.id.action_settings:
+        	return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    
+	}	
+
 }

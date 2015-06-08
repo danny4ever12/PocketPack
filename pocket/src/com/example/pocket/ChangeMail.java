@@ -5,9 +5,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
+import com.example.pocket.R.drawable;
+
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
+import android.app.ActionBar;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
@@ -29,6 +33,13 @@ public class ChangeMail extends ActionBarActivity {
 		t=(EditText)findViewById(R.id.changemailEdit);
 		pt=t.getText();
 		Button start=(Button)findViewById(R.id.ChangeMailStart);
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
+		{
+			ActionBar actionbar=getActionBar();
+			actionbar.setDisplayHomeAsUpEnabled(true);
+			actionbar.setHomeAsUpIndicator(drawable.action_previous);
+		}
+		
 		start.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -75,16 +86,22 @@ public class ChangeMail extends ActionBarActivity {
 		getMenuInflater().inflate(R.menu.change_mail, menu);
 		return true;
 	}
-
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+		switch (item.getItemId()) {
+        case android.R.id.home:
+            // app icon in action bar clicked; goto parent activity.
+            this.finish();
+            return true;
+        case R.id.action_settings:
+        	return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    
+	}	
+
 }

@@ -28,6 +28,10 @@ public class DATA_TABLE {
 		
 		public static final String TABLE_SUM="table_sum";
 		public static final String SUM="daily_sum";
+		
+		public static final String TABLE_USER="namePassword";
+		public static final String NAME="username";
+		public static final String PASSWORD="password";
 	}
 	
 	

@@ -1,16 +1,15 @@
 package com.example.pocket;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+
+import com.example.pocket.DATA_TABLE.TableInfo;
+import com.example.pocket.R.drawable;
 
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
+import android.app.ActionBar;
+import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,7 +20,8 @@ import android.widget.Toast;
 public class UpdatePass extends ActionBarActivity {
 
 	EditText et1,et2,et3,et4;
-	Editable pet1,pet2,pet3,pet4;
+	Editable pet1,pet2;
+	String pet3,pet4;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,10 +30,16 @@ public class UpdatePass extends ActionBarActivity {
 		et2=(EditText)findViewById(R.id.CurrentPss);
 		et3=(EditText)findViewById(R.id.NewUserEdit);
 		et4=(EditText)findViewById(R.id.NewPss);
-		pet1=et1.getText();
-		pet2=et2.getText();
-		pet3=et3.getText();
-		pet4=et4.getText();
+		
+		
+		
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
+		{
+			ActionBar actionbar=getActionBar();
+			actionbar.setDisplayHomeAsUpEnabled(true);
+			actionbar.setHomeAsUpIndicator(drawable.action_previous);
+		}
+		
 		
 		Button go=(Button)findViewById(R.id.ChangePassStart);
 		go.setOnClickListener(new View.OnClickListener() {
@@ -46,23 +52,33 @@ public class UpdatePass extends ActionBarActivity {
 		});
 	}
 
+	@SuppressWarnings("deprecation")
 	public void startChange()
 	{
-		try{	
-			  File setFile=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/code.pkt");
-			  System.out.println(setFile.getAbsolutePath());
+		
+		pet1=et1.getText();
+		pet2=et2.getText();
+		
+		
 			
-			  FileInputStream fin=new FileInputStream(setFile);
-              InputStreamReader isr = new InputStreamReader(fin);
-              BufferedReader bufferedReader = new BufferedReader(isr);
-              String receiveString1 = "";
-              String receiveString2 = "";
-                 
-              receiveString1 = bufferedReader.readLine();     
-              String temp1 = receiveString1.toString();        
-              receiveString2 = bufferedReader.readLine();         
-              String temp2=receiveString2.toString();
-              fin.close();
+		DBoperations DB=new DBoperations(this);
+		Cursor CR=DB.getUSRPSS(DB);
+		startManagingCursor(CR);
+		String temp1 = "",temp2="";                
+	    try{
+	        CR.moveToFirst();
+	        	
+	         
+	        	temp1 = CR.getString(CR.getColumnIndex(TableInfo.NAME));
+	            temp2 = CR.getString(CR.getColumnIndex(TableInfo.PASSWORD));
+	        
+	       }catch(Exception e){
+	    	   String T1="",T2="";
+			   DB.putNamePass(DB, T1, T2);
+	       }
+                   
+          
+              
                     
              if ((temp1.equals(pet1.toString()))&&(temp2.equals(pet2.toString())))
                  {
@@ -72,30 +88,20 @@ public class UpdatePass extends ActionBarActivity {
             	 Toast.makeText(this, "Wrong username or password! please try again ", Toast.LENGTH_LONG).show();
 	
 
-          }catch(Exception e){
-  	          Toast.makeText(this, "exception occured", Toast.LENGTH_LONG).show();
-          }	
-	}
+	        }	
+	
 	
 	public void startUpdateValues()
 	{
-		try{	
-			  File setFile=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/code.pkt");
-			  System.out.println(setFile.getAbsolutePath());
-			  
-			  FileOutputStream fOut = new FileOutputStream(setFile);
-              OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
-              myOutWriter.write(pet3.toString());
-              myOutWriter.append("\n");
-              myOutWriter.append(pet4.toString());
-              myOutWriter.close();
-              fOut.close();
-              Toast.makeText(this, "Username and password updated successfully!", Toast.LENGTH_LONG).show();
-              this.finish();
+		pet3=et3.getText().toString();
+		pet4=et4.getText().toString();
+	  DBoperations DB=new DBoperations(this);		
+	  int k=DB.deleteUSRPSS(DB);
+   	  DB.putNamePass(DB, pet3, pet4);
+	  Toast.makeText(this, "Username and password updated successfully!", Toast.LENGTH_LONG).show();
+      this.finish();
               
-		 }catch(Exception e){
-				Toast.makeText(this, "exception occured", Toast.LENGTH_LONG).show();
-			}	    
+		 	    
 	}
 	
 	@Override
@@ -110,10 +116,17 @@ public class UpdatePass extends ActionBarActivity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+		switch (item.getItemId()) {
+        case android.R.id.home:
+            // app icon in action bar clicked; goto parent activity.
+            this.finish();
+            return true;
+        case R.id.action_settings:
+        	return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    
+	}	
+
 }

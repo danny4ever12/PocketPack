@@ -21,6 +21,8 @@ public class Settings extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settings);
 		
+		
+		
 		 ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 	                android.R.layout.simple_list_item_1,settings_list);
 
@@ -36,7 +38,8 @@ public class Settings extends ListActivity {
          // ListView Clicked item index
          int itemPosition     = position;
          startSettingsOptions(itemPosition);
-	  }          
+	  }       
+	
 	public void startSettingsOptions(int pos){
 		switch(pos){
 		case 0:

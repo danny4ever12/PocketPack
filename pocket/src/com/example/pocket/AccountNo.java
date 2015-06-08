@@ -1,10 +1,14 @@
 package com.example.pocket;
 
+import com.example.pocket.R.drawable;
+
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,9 +30,13 @@ public class AccountNo extends Activity {
 		tv2.setText("Also mail me @\n   danny4ever12@live.com \nwhatsapp me @\n   +918907484460");
 		tv2.setTextColor(Color.argb(255, 64, 4, 136));
 		
-	//	ActionBar actionbar=getActionBar();
-		//actionbar.setDisplayHomeAsUpEnabled(true);
-		//actionbar.setHomeAsUpIndicator(drawable.action_previous);
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
+		{
+			ActionBar actionbar=getActionBar();
+			actionbar.setDisplayHomeAsUpEnabled(true);
+			actionbar.setHomeAsUpIndicator(drawable.action_previous);
+		}
+		
 		
 		ImageButton start1=(ImageButton)findViewById(R.id.fb1);
         start1.setOnClickListener(new View.OnClickListener() {

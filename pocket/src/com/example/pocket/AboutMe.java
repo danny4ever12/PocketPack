@@ -1,10 +1,15 @@
 package com.example.pocket;
 
 
+
+import com.example.pocket.R.drawable;
+
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,9 +27,12 @@ public class AboutMe extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_about_me);
 		
-	//	ActionBar actionbar=getActionBar();
-		//actionbar.setDisplayHomeAsUpEnabled(true);
-		//actionbar.setHomeAsUpIndicator(drawable.action_previous);
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
+		{
+			ActionBar actionbar=getActionBar();
+			actionbar.setDisplayHomeAsUpEnabled(true);
+			actionbar.setHomeAsUpIndicator(drawable.action_previous);
+		}
 		
 		tv=(TextView)findViewById(R.id.aboutText1);
 	    tv.setText("I am an engineering student hoping to create an impact on the world of engineering by trying to implement various innovative ideas and by inspiring others to do the same!All my apps are free and it always will be:)");

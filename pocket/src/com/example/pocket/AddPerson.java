@@ -3,11 +3,15 @@ package com.example.pocket;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.example.pocket.R.drawable;
+
 import android.support.v4.app.Fragment;
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -31,6 +35,14 @@ public class AddPerson extends Activity {
         name=(EditText)findViewById(R.id.name1);
         give=(EditText)findViewById(R.id.give1);
         borrow=(EditText)findViewById(R.id.borrow1);
+        
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
+		{
+			ActionBar actionbar=getActionBar();
+			actionbar.setDisplayHomeAsUpEnabled(true);
+			actionbar.setHomeAsUpIndicator(drawable.action_previous);
+		}
+		
         Button startButton=(Button)findViewById(R.id.done1);
         startButton.setOnClickListener(new View.OnClickListener() {
 			
@@ -77,12 +89,19 @@ public class AddPerson extends Activity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+		switch (item.getItemId()) {
+        case android.R.id.home:
+            // app icon in action bar clicked; goto parent activity.
+            this.finish();
+            return true;
+        case R.id.action_settings:
+        	return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    
+	}	
+
 
 	/**
 	 * A placeholder fragment containing a simple view.

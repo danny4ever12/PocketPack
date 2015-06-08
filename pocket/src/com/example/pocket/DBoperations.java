@@ -18,6 +18,10 @@ import android.util.Log;
 public class DBoperations extends SQLiteOpenHelper {
 
 	public static final int database_version=2;
+
+	public String CREATE_USERPASS="CREATE TABLE "+TableInfo.TABLE_USER+"("+TableInfo.NAME+" TEXT,"+TableInfo.PASSWORD+" TEXT);";
+	
+	//moneytab
 	public String CREATE_QUERY = "CREATE TABLE "+TableInfo.TABLE_NAME+"("+TableInfo.USER_NAME+" TEXT,"+TableInfo.MONEY+" FLOAT,"+TableInfo.DATETIME+" TEXT);";
 	
 	//daily expense
@@ -37,11 +41,13 @@ public class DBoperations extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase sdb) {
-		// TODO Auto-generated method stub
-		sdb.execSQL(CREATE_QUERY);
+		
+		sdb.execSQL(CREATE_USERPASS);
+		sdb.execSQL(CREATE_QUERY);	
 		sdb.execSQL(CREATE_DAILY);
 		sdb.execSQL(CREATE_DAYS_TOTAL);
 		sdb.execSQL(CREATE_SUM);
+		
 		Log.d("Database operations", "table created");
 	}
 
@@ -49,6 +55,16 @@ public class DBoperations extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	public void putNamePass(DBoperations dop, String name, String pass)
+	{
+		SQLiteDatabase SQ=dop.getWritableDatabase();
+		ContentValues cv=new ContentValues();
+		cv.put(TableInfo.NAME,name);
+		cv.put(TableInfo.PASSWORD, pass);
+		@SuppressWarnings("unused")
+		long k=SQ.insert(TableInfo.TABLE_USER, null,cv);
 	}
 	
 	public void putSum(DBoperations dop, float cash)
@@ -134,6 +150,15 @@ public class DBoperations extends SQLiteOpenHelper {
 		int count= SQ.update(TableInfo.TABLE_NAME,cv,TableInfo.DATETIME+" =? ",whereArgs);
 		return count;
 	}
+	
+	public int deleteUSRPSS(DBoperations dop)
+	{
+		SQLiteDatabase SQ=dop.getWritableDatabase();
+		
+		int count= SQ.delete(TableInfo.TABLE_USER,null,null);
+		return count;
+	}
+	
 	public int deleteDebt(DBoperations dop, String dtm)
 	{
 		SQLiteDatabase SQ=dop.getWritableDatabase();
@@ -176,6 +201,17 @@ public class DBoperations extends SQLiteOpenHelper {
 		}
 	
 	
+		public Cursor getUSRPSS(DBoperations dop)
+		{
+			SQLiteDatabase SQ =dop.getReadableDatabase();
+			String[] columns={TableInfo.NAME,TableInfo.PASSWORD};
+			Cursor CR=SQ.query(TableInfo.TABLE_USER, columns, null, null,null, null, null);
+			return CR;
+			
+			
+		}
+		
+		
 	public Cursor getInformation(DBoperations dop)
 	{
 		SQLiteDatabase SQ =dop.getReadableDatabase();

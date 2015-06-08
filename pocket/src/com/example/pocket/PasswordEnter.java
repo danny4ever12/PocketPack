@@ -3,13 +3,17 @@ package com.example.pocket;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+
+import com.example.pocket.DATA_TABLE.TableInfo;
+import com.example.pocket.R.drawable;
+
 import android.support.v4.app.Fragment;
-import android.text.Editable;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.LayoutInflater;
@@ -24,8 +28,10 @@ import android.widget.Toast;
 public class PasswordEnter extends Activity {
 
 	EditText userName,Pass;
-	Editable PuserName,Ppass;
-	String temp1,temp2;
+
+	String temp1,temp2,Tname="",Tpss="";
+	DBoperations DB;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,8 +41,17 @@ public class PasswordEnter extends Activity {
         Button startButton=(Button)findViewById(R.id.ok);
         Button mailbtn=(Button)findViewById(R.id.forgtPsswrd);
         
-        PuserName=userName.getText();
-        Ppass=Pass.getText();
+        DB=new DBoperations(this);
+        
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
+		{
+			ActionBar actionbar=getActionBar();
+			actionbar.setDisplayHomeAsUpEnabled(true);
+			actionbar.setHomeAsUpIndicator(drawable.action_previous);
+		}
+		
+        
+        
         
         
         startButton.setOnClickListener(new View.OnClickListener() {
@@ -58,56 +73,50 @@ public class PasswordEnter extends Activity {
 		});
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void startApp()
 	{
-		try{	
-			File setFile=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/code.pkt");
-			System.out.println(setFile.getAbsolutePath());
-			if(!setFile.exists()){
-				
-                  //WRITING DATA TO FILE
-                        FileOutputStream fOut = new FileOutputStream(setFile);
-                        OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
-                        myOutWriter.append(PuserName.toString());
-                        myOutWriter.append("\n");
-                        myOutWriter.append(Ppass.toString());
-                        myOutWriter.close();
-                        fOut.close();
-				        startEmail();
+		
+		Tname=userName.getText().toString();
+        Tpss=Pass.getText().toString();
+		String name="",pss="";
+		Cursor CR=DB.getUSRPSS(DB);
+		startManagingCursor(CR);
+	   try{ 
+		CR.moveToFirst();
+	        	
+	    name = CR.getString(CR.getColumnIndex(TableInfo.NAME));
+	    pss = CR.getString(CR.getColumnIndex(TableInfo.PASSWORD));
+	    
+	   }catch(Exception e){
+		   name="";pss="";
+		   DB.putNamePass(DB, name, pss);
+	   }
+				        
+	          if(name.equals("")||pss.equals(""))
+	          {
+	        	  @SuppressWarnings("unused")
+				int k=DB.deleteUSRPSS(DB);
+	        	  DB.putNamePass(DB, Tname, Tpss);
+	        		  startEmail();
 			  }
 			else
 			  {
 				
-		
-                   //READING DATA FROM FILE
-                         FileInputStream fin=new FileInputStream(setFile);
-                         InputStreamReader isr = new InputStreamReader(fin);
-                         BufferedReader bufferedReader = new BufferedReader(isr);
-                         String receiveString1 = "";
-                         String receiveString2 = "";
-                                
-     
-                         receiveString1 = bufferedReader.readLine();     
-                         temp1 = receiveString1.toString();        
-                         receiveString2 = bufferedReader.readLine();         
-                         temp2=receiveString2.toString();
-                         fin.close();
-                                
-                         if ((temp1.equals(PuserName.toString()))&&(temp2.equals(Ppass.toString())))
-                             {
+		         if ((name.equals(Tname))&&(pss.equals(Tpss)))
+                             
                         	   startPocket();
-                             }
+                             
                          else
                         	 startWrongWay();
 				
 			  }
-		   }catch(Exception e){
-				Toast.makeText(this, "exception occured", Toast.LENGTH_LONG).show();
-			}	
-			
+		 
+	        }
 		
-	}
 	
+	
+	@SuppressWarnings("deprecation")
 	public void startMailSent()
 	{
 		String recipient="";
@@ -133,25 +142,25 @@ public class PasswordEnter extends Activity {
 			}
 		
 		//fetching username and password
-		try{	
-			  File setFile=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/code.pkt");
-			  System.out.println(setFile.getAbsolutePath());
-			
-			  FileInputStream fin=new FileInputStream(setFile);
-            InputStreamReader isr = new InputStreamReader(fin);
-            BufferedReader bufferedReader = new BufferedReader(isr);
-            String receiveString1 = "";
-            String receiveString2 = "";
-               
-            receiveString1 = bufferedReader.readLine();     
-            usr = receiveString1.toString();        
-            receiveString2 = bufferedReader.readLine();         
-            psswrd=receiveString2.toString();
-            fin.close();
-		}catch(Exception e){
-	          Toast.makeText(this, "exception occured", Toast.LENGTH_LONG).show();
+		
+		Cursor CR=DB.getUSRPSS(DB);
+		   startManagingCursor(CR);
+	    try{
+		    CR.moveToFirst();
+	        usr = CR.getString(CR.getColumnIndex(TableInfo.NAME));
+	        psswrd = CR.getString(CR.getColumnIndex(TableInfo.PASSWORD));
+	       }catch(Exception e){
+	    	 String T1="",T2="";
+			 DB.putNamePass(DB, T1, T2);
+	       }
+	    
+		
+		if(usr.equals("")||psswrd.equals(""))
+		{
+	          Toast.makeText(this, "user name and password not provided", Toast.LENGTH_LONG).show();
+	          
         }	
-			
+		else{	
 		
 		 
 		   String subject="Pocket app";
@@ -166,10 +175,11 @@ public class PasswordEnter extends Activity {
 		    } catch (android.content.ActivityNotFoundException ex) {
 		    Toast.makeText(PasswordEnter.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
 		    }
+		}  
+	 } 
 		   
 		   
-		   
-	}
+	
 	
 	public void startEmail()
 	{
@@ -204,12 +214,19 @@ public class PasswordEnter extends Activity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+		switch (item.getItemId()) {
+        case android.R.id.home:
+            // app icon in action bar clicked; goto parent activity.
+            this.finish();
+            return true;
+        case R.id.action_settings:
+        	return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    
+	}	
+
 
 	/**
 	 * A placeholder fragment containing a simple view.
