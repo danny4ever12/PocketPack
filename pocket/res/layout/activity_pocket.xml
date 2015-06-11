@@ -1,10 +1,19 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+               android:id="@+id/scrollView1"
+         android:background="@drawable/mainback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+
+<LinearLayout 
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mainback"
     android:orientation="vertical"
-    tools:context="com.example.pocket.Pocket"
+    tools:context="com.mipocket.pocket.Pocket"
     tools:ignore="MergeRootFrame" >
 
     <Button
@@ -12,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:background="@drawable/main_btn_shape_color"
         android:layout_marginTop="22dp"
         android:text="@string/NewPerson" />
 
@@ -19,12 +29,14 @@
         android:id="@+id/mTab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/main_btn_shape_color"
         android:layout_marginTop="20dp"
         android:text="@string/MoneyTab" />
 
     <Button
         android:id="@+id/DailyXpenseStart"
         android:layout_width="match_parent"
+        android:background="@drawable/main_btn_shape_color"  
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/DailyExpense" />
@@ -33,6 +45,7 @@
         android:id="@+id/knowMe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/main_btn_shape_color"  
         android:layout_marginTop="20dp"
         android:text="@string/KnowMe" />
 
@@ -40,8 +53,9 @@
         android:id="@+id/Setti"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/main_btn_shape_color"  
         android:layout_marginTop="20dp"
         android:text="@string/Settings" />
 
 </LinearLayout>
-
+</ScrollView>

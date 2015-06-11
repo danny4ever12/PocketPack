@@ -44,23 +44,27 @@
     android:text="@string/date"
     android:textSize="@dimen/md" />
 
-<Button
+<ImageButton
     android:id="@+id/br2"
     style="?android:attr/buttonStyleSmall"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentRight="true"
+    android:background="@drawable/del3"
     android:layout_alignTop="@+id/debt"
-    android:text="@string/delete" />
+    android:contentDescription="@string/delete" 
+    android:src="@drawable/del_shape_image"/>
 
-<Button
+<ImageButton
     android:id="@+id/br1"
     style="?android:attr/buttonStyleSmall"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignTop="@+id/br2"
+    android:background="@drawable/del3"
     android:layout_marginRight="15dp"
     android:layout_toLeftOf="@+id/br2"
-    android:text="@string/update" />
+    android:contentDescription="@string/update" 
+    android:src="@drawable/update_shape_back"/>
 
 </RelativeLayout>

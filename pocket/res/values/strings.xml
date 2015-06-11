@@ -17,7 +17,7 @@
     <string name="done">done</string>
     <string name="title_activity_password_enter">mi pocket</string>
     <string name="go">go</string>
-    <string name="title_activity_user_passwords">UserPasswords</string>
+    <string name="title_activity_user_passwords">User Passwords</string>
     <string name="title_activity_error">Error</string>
     <string name="TryAgain">try again</string>
     <string name="title_activity_sub_add_person">Add person details</string>
@@ -46,7 +46,7 @@
     <string name="NewUserName">Enter new user name</string>
     <string name="NewPassword">Enter new password</string>
     <string name="DailyExpense">Your daily expenses</string>
-    <string name="title_activity_daily_expense">DailyExpense</string>
+    <string name="title_activity_daily_expense">Daily Expense</string>
     <string name="forgot_psswrd">forgot password?</string>
     <string name="zero">0</string>
     <string name="date">date</string>
@@ -55,15 +55,17 @@
     <string name="empty"></string>
     <string name="delete">delete</string>
     <string name="update">update</string>
-    <string name="title_activity_update__debt">Update_Debt</string>
-    <string name="add_expense">add_expense</string>
-    <string name="title_activity_add_daily">AddDaily</string>
+    <string name="title_activity_update__debt">update debt</string>
+    <string name="add_expense">add expense</string>
+    <string name="title_activity_add_daily">Add daily expense</string>
     <string name="title">title</string>
     <string name="spent">spent</string>
     <string name="got">got</string>
-    <string name="previous_days_expenses">previous_day</string>
-    <string name="title_activity_previous_days">PreviousDays</string>
+    <string name="previous_days_expenses">previous day</string>
+    <string name="title_activity_previous_days">Previous day\'s expenses</string>
     <string name="day">day</string>
-    <string name="clear_all">clear_all</string>
+    <string name="clear_all">clear all</string>
+    <string name="password_protection">Password protection</string>
+    <string name="connect">connect</string>
 
 </resources>

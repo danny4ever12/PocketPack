@@ -7,13 +7,15 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="@drawable/mainback"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.pocket.DailyExpense" >
+    tools:context="com.mipocket.pocket.DailyExpense" >
 
     <Button
         android:id="@+id/dbn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/forgt_shape_color"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:text="@string/add_expense" />
@@ -23,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/totall"
+        android:background="@drawable/forgt_shape_color"
         android:layout_alignParentRight="true"
         android:text="@string/previous_days_expenses" />
 

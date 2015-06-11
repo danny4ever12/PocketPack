@@ -42,13 +42,15 @@
     android:text="@string/day"
     android:textSize="@dimen/md" />
 
-<Button
+<ImageButton
     android:id="@+id/prevbtn1"
     style="?android:attr/buttonStyleSmall"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@drawable/del3"
     android:layout_alignParentRight="true"
     android:layout_alignParentTop="true"
-    android:text="@string/delete" />
+    android:contentDescription="@string/delete"
+    android:src="@drawable/del_shape_image" />
 
 </RelativeLayout>
