@@ -1,61 +1,79 @@
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-               android:id="@+id/scrollView1"
-         android:background="@drawable/mainback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-
-<LinearLayout 
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
     android:background="@drawable/mainback"
     android:orientation="vertical"
     tools:context="com.mipocket.pocket.Pocket"
     tools:ignore="MergeRootFrame" >
 
-    <Button
-        android:id="@+id/newPerson"
-        android:layout_width="match_parent"
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:background="@drawable/main_btn_shape_color"
-        android:layout_marginTop="22dp"
-        android:text="@string/NewPerson" />
+        android:background="@drawable/mainback" >
 
-    <Button
-        android:id="@+id/mTab"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/main_btn_shape_color"
-        android:layout_marginTop="20dp"
-        android:text="@string/MoneyTab" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/DailyXpenseStart"
-        android:layout_width="match_parent"
-        android:background="@drawable/main_btn_shape_color"  
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/DailyExpense" />
+            <ImageButton
+                android:id="@+id/newPerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/whitemain"
+                android:contentDescription="@string/NewPerson"
+                android:src="@drawable/main1" />
 
-    <Button
-        android:id="@+id/knowMe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/main_btn_shape_color"  
-        android:layout_marginTop="20dp"
-        android:text="@string/KnowMe" />
+            <ImageButton
+                android:id="@+id/mTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/newPerson"
+                android:layout_marginLeft="50sp"
+                android:layout_toRightOf="@+id/newPerson"
+                android:background="@drawable/whitemain"
+                android:contentDescription="@string/MoneyTab"
+                android:src="@drawable/main2" />
 
-    <Button
-        android:id="@+id/Setti"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/main_btn_shape_color"  
-        android:layout_marginTop="20dp"
-        android:text="@string/Settings" />
+            <ImageButton
+                android:id="@+id/DailyXpenseStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mTab"
+                android:background="@drawable/whitemain"
+                android:contentDescription="@string/DailyExpense"
+                android:src="@drawable/main3" />
 
+            <ImageButton
+                android:id="@+id/knowMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/DailyXpenseStart"
+                android:layout_marginLeft="30sp"
+                android:layout_toRightOf="@+id/DailyXpenseStart"
+                android:background="@drawable/whitemain"
+                android:contentDescription="@string/KnowMe"
+                android:src="@drawable/main4" />
+
+            <ImageButton
+                android:id="@+id/Setti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/knowMe"
+                android:background="@drawable/whitemain"
+                android:contentDescription="@string/Settings"
+                android:src="@drawable/main5" />
+        </RelativeLayout>
+    </ScrollView>
+    
 </LinearLayout>
-</ScrollView>

@@ -4,8 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.mipocket.pocket.R.drawable;
-
-import android.support.v4.app.Fragment;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
@@ -13,11 +11,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -85,12 +81,16 @@ public class AddPerson extends Activity {
 	    	startActivity(launch);
 	    	finish();
 	 }
-	 
+	 public void goTab()
+	 {
+		 Intent launch=new Intent(this,MoneyTab.class);
+		 startActivity(launch);
+	 }
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.about_me, menu);
+		getMenuInflater().inflate(R.menu.add_person, menu);
 		return true;
 			}
 
@@ -104,6 +104,9 @@ public class AddPerson extends Activity {
             // app icon in action bar clicked; goto parent activity.
             this.finish();
             return true;
+        case R.id.go_tab:
+        	goTab();
+        	return true;
         case R.id.action_settings:
         	goSettings();
         	return true;
@@ -114,21 +117,5 @@ public class AddPerson extends Activity {
 	}	
 
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_add_person,
-					container, false);
-			return rootView;
-		}
-	}
-
+	
 }

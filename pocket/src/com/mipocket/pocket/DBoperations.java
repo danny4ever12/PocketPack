@@ -151,6 +151,22 @@ public class DBoperations extends SQLiteOpenHelper {
 		return count;
 	}
 	
+	
+	@SuppressLint("SimpleDateFormat")
+	public int updateDaily(DBoperations dop, String dtm, Float mny)
+	{
+		SQLiteDatabase SQ=dop.getWritableDatabase();
+		String DateandTime = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
+		ContentValues cv=new ContentValues();
+		cv.put(TableInfo.MONEY, mny);
+		cv.put(TableInfo.DATETIME, DateandTime);
+		String[] whereArgs={dtm};
+		int count= SQ.update(TableInfo.TABLE_DLY,cv,TableInfo.DATETIME+" =? ",whereArgs);
+		return count;
+	}
+	
+	
+	
 	public int deleteUSRPSS(DBoperations dop)
 	{
 		SQLiteDatabase SQ=dop.getWritableDatabase();
@@ -175,13 +191,14 @@ public class DBoperations extends SQLiteOpenHelper {
 		int count= SQ.delete(TableInfo.TABLE_DLY,TableInfo.DATETIME+" =? ",whereArgs);
 		return count;
 	}
-	public int deleteDailyaLL(DBoperations dop)
-	{
-		SQLiteDatabase SQ=dop.getWritableDatabase();
 	
-		int count= SQ.delete(TableInfo.TABLE_DLY,null,null);
-		return count;
-	}
+	//public int deleteDailyaLL(DBoperations dop)
+	//{
+	//	SQLiteDatabase SQ=dop.getWritableDatabase();
+	
+	//	int count= SQ.delete(TableInfo.TABLE_DLY,null,null);
+	//	return count;
+	//}
 	
 	
 	//delete single day's expenditure
@@ -250,6 +267,8 @@ public class DBoperations extends SQLiteOpenHelper {
 		
 		
 	}
+	
+	
 	
 	//for sum
 	public Cursor getSum(DBoperations dop)

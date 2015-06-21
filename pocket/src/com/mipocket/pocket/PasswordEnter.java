@@ -9,7 +9,6 @@ import java.io.InputStreamReader;
 import com.mipocket.pocket.DATA_TABLE.TableInfo;
 import com.mipocket.pocket.R.drawable;
 
-import android.support.v4.app.Fragment;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -21,11 +20,9 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.StrictMode;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -327,21 +324,6 @@ public class PasswordEnter extends Activity {
 	}	
 
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_password_enter,
-					container, false);
-			return rootView;
-		}
-	}
+	
 
 }

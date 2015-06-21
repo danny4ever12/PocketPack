@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/name"
+    android:layout_below="@+id/name"
+    android:orientation="vertical"
+    android:padding="@dimen/pd" >
+    
+<TextView
+    android:id="@+id/name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="@dimen/xd"
+    android:text="@string/tab"
+    android:textSize="@dimen/qd"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/rs"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_toRightOf="@+id/name"
+    android:text="@string/Rs"
+    android:paddingRight="10dp"
+    android:textSize="@dimen/qd"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/debt"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_toRightOf="@+id/rs"
+    android:text="@string/tab"
+    android:textSize="@dimen/qd"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/datetext"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/name"
+    android:text="@string/date"
+    android:textSize="@dimen/md" />
+
+
+</RelativeLayout>

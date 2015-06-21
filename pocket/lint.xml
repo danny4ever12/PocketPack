@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="NewApi" severity="ignore">
+        <ignore path="src/com/example/pocket/AddPerson.java" />
+        <ignore path="src/com/example/pocket/DailyExpense.java" />
+        <ignore path="src/com/example/pocket/EmailEnter.java" />
+        <ignore path="src/com/example/pocket/Error.java" />
+        <ignore path="src/com/example/pocket/MoneyTab.java" />
+        <ignore path="src/com/example/pocket/PasswordEnter.java" />
+        <ignore path="src/com/example/pocket/Pocket.java" />
+        <ignore path="src/com/example/pocket/PreviousDays.java" />
+        <ignore path="src/com/example/pocket/UpdatePass.java" />
+        <ignore path="src/com/example/pocket/Update_Debt.java" />
+        <ignore path="src/com/mipocket/pocket/AddDaily.java" />
+        <ignore path="src/com/mipocket/pocket/AddPerson.java" />
+        <ignore path="src/com/mipocket/pocket/ChangeMail.java" />
+        <ignore path="src/com/mipocket/pocket/DailyExpense.java" />
+        <ignore path="src/com/mipocket/pocket/EmailEnter.java" />
+        <ignore path="src/com/mipocket/pocket/Error.java" />
+        <ignore path="src/com/mipocket/pocket/MoneyTab.java" />
+        <ignore path="src/com/mipocket/pocket/PasswordEnter.java" />
+        <ignore path="src/com/mipocket/pocket/Update_Debt.java" />
+    </issue>
+</lint>

@@ -10,7 +10,7 @@
   <RelativeLayout 
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
    android:background="@drawable/mainback"
     android:contentDescription="@string/hello_world"
     tools:context="com.example.appdoctor.AccountNo"

@@ -1,6 +1,8 @@
 package com.mipocket.pocket;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.mipocket.pocket.DATA_TABLE.TableInfo;
 import com.mipocket.pocket.R.drawable;
@@ -9,8 +11,10 @@ import com.mipocket.pocket.R.drawable;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.ListActivity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,13 +31,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MoneyTab extends ListActivity {
-   //for checkbox
+   
 	ListView lv;
-	//
+	
 	DBoperations DOP;
 	MoneytabAdapter myAdapter;
 	ArrayList<MyDiary> diaries;
 	Context ctx=this;
+
 	private class MyDiary{
 	
 		
@@ -59,6 +64,16 @@ public class MoneyTab extends ListActivity {
 	    DOP=new DBoperations(this);
 	    myAdapter = new MoneytabAdapter(this);
 	    this.setListAdapter(myAdapter);
+	    
+	    
+	    //for notification
+	    PackageManager pm = MoneyTab.this.getPackageManager();
+		ComponentName componentName = new ComponentName(
+				MoneyTab.this, DaysReceiver.class);
+		pm.setComponentEnabledSetting(componentName,
+				PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+				PackageManager.DONT_KILL_APP);
+	    
 	    
 	    if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
 		{
@@ -143,12 +158,17 @@ public class MoneyTab extends ListActivity {
 		 
 		 
 		 holder.deleteBtn.setOnClickListener(new View.OnClickListener(){
-		        @Override
+		        @SuppressLint("SimpleDateFormat")
+				@Override
 		        public void onClick(View v) { 
 		            
 		            diaries.remove(arg0);
 		            
 		          DBoperations DB = new DBoperations(ctx);
+		                  
+		          String DateandTime = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
+		          float tmpval=Float.valueOf(holder.mdiary.val);
+		          DB.putDaily(DB,holder.mdiary.name,tmpval,DateandTime);
 		          @SuppressWarnings("unused")
 				int k=  DB.deleteDebt(DB,holder.mdiary.recorddate);
 		            notifyDataSetChanged();

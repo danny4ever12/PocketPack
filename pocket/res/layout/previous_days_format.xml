@@ -43,6 +43,18 @@
     android:textSize="@dimen/md" />
 
 <ImageButton
+    android:id="@+id/viewbn"
+    style="?android:attr/buttonStyleSmall"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignTop="@+id/prevbtn1"
+    android:layout_marginRight="15dp"
+    android:layout_toLeftOf="@+id/prevbtn1"
+    android:background="@drawable/del3"
+    android:contentDescription="@string/view"
+    android:src="@drawable/view_shape_back" />
+
+<ImageButton
     android:id="@+id/prevbtn1"
     style="?android:attr/buttonStyleSmall"
     android:layout_width="wrap_content"
@@ -54,3 +66,4 @@
     android:src="@drawable/del_shape_image" />
 
 </RelativeLayout>
+

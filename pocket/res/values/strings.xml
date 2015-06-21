@@ -12,6 +12,7 @@
     <string name="title_activity_about_me">About Me</string>
     <string name="title_activity_account_no">Connect with me:)</string>
     <string name="enterName">enter name</string>
+    <string name="az_appkey">d58fdd8af3e9d3ddbe2de111653292ab</string>
     <string name="give">You gave</string>
     <string name="borrow">you borrowed</string>
     <string name="done">done</string>
@@ -20,14 +21,13 @@
     <string name="title_activity_user_passwords">User Passwords</string>
     <string name="title_activity_error">Error</string>
     <string name="TryAgain">try again</string>
-    <string name="title_activity_sub_add_person">Add person details</string>
     <string name="EnterName">Enter Name</string>
     <string name="FirstNameLastName">FirstName LastName</string>
     <string name="YouDebited">You debited</string>
     <string name="money">money</string>
+    <string name="fb">facebook</string>
     <string name="YouGave">You gave</string>
     <string name="Enterdetails">done</string>
-    <string name="fb">facebook</string>
     <string name="googleplus">googleplus</string>
     <string name="linkedin">linkedin</string>
     <string name="twitter">twitter</string>
@@ -67,5 +67,12 @@
     <string name="clear_all">clear all</string>
     <string name="password_protection">Password protection</string>
     <string name="connect">connect</string>
+    <string name="view_tabs">view tabs</string>
+    <string name="title_activity_update__daily">Update_Daily</string>
+    <string name="add">add expense</string>
+    <string name="subtract">subtract expense</string>
+    <string name="view">view</string>
+    <string name="title_activity_previous_days_sub_view">PreviousDaysSubView</string>
+    <string name="title_activity_notify_tabs">NotifyTabs</string>
 
 </resources>

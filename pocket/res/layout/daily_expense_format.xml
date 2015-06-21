@@ -43,6 +43,18 @@
     android:textSize="@dimen/md" />
 
 <ImageButton
+    android:id="@+id/btnup1"
+    style="?android:attr/buttonStyleSmall"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignTop="@+id/dlybn1"
+    android:background="@drawable/del3"
+    android:layout_marginRight="15dp"
+    android:layout_toLeftOf="@+id/dlybn1"
+    android:contentDescription="@string/update" 
+    android:src="@drawable/update_shape_back"/>
+
+<ImageButton
     android:id="@+id/dlybn1"
     style="?android:attr/buttonStyleSmall"
     android:layout_width="wrap_content"

@@ -1,7 +1,9 @@
 package com.mipocket.pocket;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import com.mipocket.pocket.DATA_TABLE.TableInfo;
 import com.mipocket.pocket.R.drawable;
@@ -82,7 +84,7 @@ public class DailyExpense extends ListActivity {
 	    pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent,  PendingIntent.FLAG_UPDATE_CURRENT);
         startAlarm();		
 		
-		
+        
 		    DOP=new DBoperations(this);
 		    
 		    myAdapter = new MoneydailyAdapter(this);
@@ -138,6 +140,8 @@ public class DailyExpense extends ListActivity {
 		
 	    manager.setRepeating(AlarmManager.RTC,calendar.getTimeInMillis() ,interval,pendingIntent);
 
+	    
+	 
 	}
 	
 	
@@ -178,6 +182,7 @@ public class DailyExpense extends ListActivity {
 		   getdata();
 		  
 		}
+		@SuppressLint("SimpleDateFormat")
 		@SuppressWarnings("deprecation")
 		public void getdata(){
 			
@@ -186,17 +191,22 @@ public class DailyExpense extends ListActivity {
 		   
 		   Cursor CR=DOP.getInfoDaily(DOP);
 		   startManagingCursor(CR);
+		   String DT = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 	        if(CR.moveToFirst()){
 	        	
 	          do
 	           {
-	        	String name = CR.getString(CR.getColumnIndex(TableInfo.OCCATION));
-	        	float debt = CR.getFloat(CR.getColumnIndex(TableInfo.MONEY));
-	        	tempSum+=debt;
 	        	String dttm = CR.getString(CR.getColumnIndex(TableInfo.DATETIME));
-	        	MymDiary temp = new MymDiary(name,debt,dttm);
-	        	diaries.add(temp);
 	        	
+	        	if(dttm.contains(DT))
+	        	{
+	        	    String name = CR.getString(CR.getColumnIndex(TableInfo.OCCATION));
+	        	    float debt = CR.getFloat(CR.getColumnIndex(TableInfo.MONEY));
+	        	    tempSum+=debt;
+	        	
+	        	    MymDiary temp = new MymDiary(name,debt,dttm);
+	        	    diaries.add(temp);
+	        	}
 	         }while(CR.moveToNext());
 	        
 	          DOP.deleteSum(DOP);
@@ -223,7 +233,7 @@ public class DailyExpense extends ListActivity {
 	     holder.mny=(TextView)v.findViewById(R.id.price);
 	     holder.mDate = (TextView)v.findViewById(R.id.dtext);
 	     holder.deleteBtn = (ImageButton)v.findViewById(R.id.dlybn1);
-		
+		 holder.updtBtn=(ImageButton)v.findViewById(R.id.btnup1);
 	     v.setTag(holder);
 	}
 	else {
@@ -231,6 +241,24 @@ public class DailyExpense extends ListActivity {
 	}
 	
 	 
+	holder.updtBtn.setOnClickListener(new View.OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			 String temp=holder.mdiary.recorddate;
+	            String tval=holder.mdiary.val;
+	            Intent launchUp=new Intent(ctx,Update_Daily.class);
+	            launchUp.putExtra("DTM", temp);
+	            launchUp.putExtra("MSND", tval);
+	            launchUp.putExtra("MNME", holder.mdiary.name);
+	            startActivity(launchUp);
+	            finish();
+		}
+	});
+	
+	
+	
 	 
 	 holder.deleteBtn.setOnClickListener(new View.OnClickListener(){
 	       
@@ -275,7 +303,7 @@ public class DailyExpense extends ListActivity {
 	TextView mny;
 	TextView mDate;
 	ImageButton deleteBtn;
-	
+	ImageButton updtBtn;
 	
     }
 }

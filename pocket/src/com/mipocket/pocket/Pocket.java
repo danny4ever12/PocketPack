@@ -4,18 +4,16 @@ package com.mipocket.pocket;
 
 import com.mipocket.pocket.R.drawable;
 
-import android.support.v4.app.Fragment;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
+import com.appszoom.appszoomsdk.AppsZoom;
 
 public class Pocket extends Activity {
 
@@ -24,7 +22,8 @@ public class Pocket extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pocket);
 		
-		
+		AppsZoom.start(this);
+		AppsZoom.showAd(this);
 		
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
 		{
@@ -34,7 +33,7 @@ public class Pocket extends Activity {
 		}
 		
 
-		Button addPerson=(Button)findViewById(R.id.newPerson);
+		ImageButton addPerson=(ImageButton)findViewById(R.id.newPerson);
 		addPerson.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -43,7 +42,7 @@ public class Pocket extends Activity {
 				startAddPerson();
 			}
 		});
-		Button mnyTab=(Button)findViewById(R.id.mTab);
+		ImageButton mnyTab=(ImageButton)findViewById(R.id.mTab);
 		
 		mnyTab.setOnClickListener(new View.OnClickListener() {
 			
@@ -53,7 +52,7 @@ public class Pocket extends Activity {
 				startMnyTab();
 			}
 		});
-		Button know=(Button)findViewById(R.id.knowMe);
+		ImageButton know=(ImageButton)findViewById(R.id.knowMe);
 		know.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -62,7 +61,7 @@ public class Pocket extends Activity {
 				startKnowMe();
 			}
 		});
-		Button sett=(Button)findViewById(R.id.Setti);
+		ImageButton sett=(ImageButton)findViewById(R.id.Setti);
 		sett.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -72,7 +71,7 @@ public class Pocket extends Activity {
 			}
 		});
 		
-		Button xpens=(Button)findViewById(R.id.DailyXpenseStart);
+		ImageButton xpens=(ImageButton)findViewById(R.id.DailyXpenseStart);
 		xpens.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -159,21 +158,6 @@ public class Pocket extends Activity {
     
 	}	
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_pocket,
-					container, false);
-			return rootView;
-		}
-	}
+	
 
 }
