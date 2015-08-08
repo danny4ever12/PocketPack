@@ -21,10 +21,10 @@ public class Pocket extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pocket);
-		
+		//for showing adds
 		AppsZoom.start(this);
 		AppsZoom.showAd(this);
-		
+	     //for menu back button
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
 		{
 			ActionBar actionbar=getActionBar();

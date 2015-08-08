@@ -30,7 +30,7 @@ public class AccountNo extends Activity {
 		tv2=(TextView)findViewById(R.id.mailme);
 		tv2.setText("Also mail me @\n   danny4ever12@live.com \nwhatsapp me @\n   +918907484460");
 		tv2.setTextColor(Color.argb(255, 64, 4, 136));
-		
+	     //for menu back button
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
 		{
 			ActionBar actionbar=getActionBar();

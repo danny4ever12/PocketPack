@@ -2,7 +2,7 @@ package com.mipocket.pocket;
 
 import java.security.AccessController;
 import java.security.Provider;
-
+//for sending email
 @SuppressWarnings("serial")
 public final class JSSEProvider extends Provider {
 

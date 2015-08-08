@@ -53,7 +53,7 @@ import android.widget.Toast;
 		protected void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			setContentView(R.layout.activity_previous_days);
-			
+		     //for menu back button
 			if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
 			{
 				ActionBar actionbar=getActionBar();
@@ -194,10 +194,11 @@ import android.widget.Toast;
 	
 	
 	
-		
+		//for deleting all previous day's data
 	public void startDeleteAll()
 	{
 		 final DBoperations DB = new DBoperations(ctx);
+		 //for alertbox
 		 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ctx);
 	 
 				// set title

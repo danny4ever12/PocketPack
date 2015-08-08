@@ -16,7 +16,7 @@ import android.widget.ListView;
 import android.widget.Switch;
 
 public class Settings extends ListActivity {
-	
+	//settings options
 	static final String[] settings_list=new String[]{
 		"Change username and password",
 		"Change recovery mail"
@@ -31,7 +31,7 @@ public class Settings extends ListActivity {
 		sw1=(Switch)findViewById(R.id.pswrdon1);
 		sw1.setTextSize(18);
 		
-		//file handling of switch state		
+		//file handling of switch state	->password protection	
         try{
 			
 			File setfile=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/psswrd.pkt");
@@ -57,7 +57,7 @@ public class Settings extends ListActivity {
 		}
 		
 		
-		
+		//for triggering password protection
 		sw1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			
 			@Override

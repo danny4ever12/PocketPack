@@ -36,6 +36,7 @@ public class Update_Daily extends Activity {
 	    retMSND=k.getStringExtra("MSND");
 	    getval=Float.valueOf(retMSND);
 	    getNME=k.getStringExtra("MNME");
+	     //for menu back button
 	    if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
 		{
 			ActionBar actionbar=getActionBar();
@@ -59,6 +60,7 @@ public class Update_Daily extends Activity {
 		});
 	}
 
+	//fetching data from edittext and updating data in sql table
 	@SuppressLint("SimpleDateFormat")
 	public void startUpdate()
 	{

@@ -75,7 +75,7 @@ public class PasswordEnter extends Activity {
         Button mailbtn=(Button)findViewById(R.id.forgtPsswrd);
         
         DB=new DBoperations(this);
-        
+        //for menu back button
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
 		{
 			ActionBar actionbar=getActionBar();
@@ -109,7 +109,7 @@ public class PasswordEnter extends Activity {
 	@SuppressWarnings("deprecation")
 	public void startApp()
 	{
-		
+       //checking for username and password match 		
 		Tname=userName.getText().toString();
         Tpss=Pass.getText().toString();
 		String name="",pss="";
@@ -144,6 +144,7 @@ public class PasswordEnter extends Activity {
                         	  
 		             }          
                   else
+                	  //invalid username or password
                         	 startWrongWay();
 				
 			  }
@@ -266,6 +267,7 @@ public class PasswordEnter extends Activity {
 	
 		public void startEmail()
 	{
+			
 		try{
 					
 			 File setfile=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/recoverymail.pkt");

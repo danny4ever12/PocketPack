@@ -71,7 +71,7 @@ public class DailyExpense extends ListActivity {
 	    
 	    totaltext();
 	   
-	    
+	     //for menu back button 
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
 		{
 			ActionBar actionbar=getActionBar();
@@ -158,6 +158,7 @@ public class DailyExpense extends ListActivity {
 		startActivity(launchActivity);
 	}
 	
+	//adapter for list activity
     private class MoneydailyAdapter extends BaseAdapter implements ListAdapter{
 		private LayoutInflater mInflater;
 		 ArrayList<MymDiary> diaries;
@@ -174,14 +175,15 @@ public class DailyExpense extends ListActivity {
 			    this.list = list; 
 			    this.context = context; 
 			}
-		//
-		 
+		
+		 //multiple constructors
 		public MoneydailyAdapter(Context context) {
 		   mInflater = LayoutInflater.from(context);
 		   diaries = new ArrayList<MymDiary>();
 		   getdata();
 		  
 		}
+		//fetching data from sql table
 		@SuppressLint("SimpleDateFormat")
 		@SuppressWarnings("deprecation")
 		public void getdata(){
@@ -240,7 +242,7 @@ public class DailyExpense extends ListActivity {
 		holder = (ViewHolder) v.getTag();
 	}
 	
-	 
+	 //for updating expense
 	holder.updtBtn.setOnClickListener(new View.OnClickListener() {
 		
 		@Override
@@ -259,7 +261,7 @@ public class DailyExpense extends ListActivity {
 	
 	
 	
-	 
+	 //for deleting that expense
 	 holder.deleteBtn.setOnClickListener(new View.OnClickListener(){
 	       
 			@SuppressWarnings("deprecation")

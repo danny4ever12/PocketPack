@@ -19,7 +19,7 @@ public class Error extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_error);
 		
-		
+	     //for menu back button
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
 		{
 			ActionBar actionbar=getActionBar();

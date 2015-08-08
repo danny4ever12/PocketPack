@@ -33,6 +33,8 @@ public class ChangeMail extends ActionBarActivity {
 		t=(EditText)findViewById(R.id.changemailEdit);
 		pt=t.getText();
 		Button start=(Button)findViewById(R.id.ChangeMailStart);
+		
+	     //for menu back button
 		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
 		{
 			ActionBar actionbar=getActionBar();
@@ -52,6 +54,7 @@ public class ChangeMail extends ActionBarActivity {
 
 	public void startChange()
 	{    
+		//checking username and password stored in file
 	try{	
 		 File rFile=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/recoverymail.pkt");
 	     System.out.println(rFile.getAbsolutePath());

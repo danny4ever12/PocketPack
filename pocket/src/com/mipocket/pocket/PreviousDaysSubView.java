@@ -2,6 +2,7 @@ package com.mipocket.pocket;
 
 
 import java.util.ArrayList;
+
 import com.mipocket.pocket.DATA_TABLE.TableInfo;
 import com.mipocket.pocket.R.drawable;
 import android.annotation.SuppressLint;
@@ -22,6 +23,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+//for indicating expenses of a particular day
 public class PreviousDaysSubView extends ListActivity {
 
     ListView lv;
@@ -69,7 +71,7 @@ public class PreviousDaysSubView extends ListActivity {
 	
 	
 	}
-
+ //for listview
 	 private class MoneytabsubAdapter extends BaseAdapter implements ListAdapter{
 			private LayoutInflater mInflater;
 			 ArrayList<MyDiary> diaries;

@@ -34,7 +34,7 @@ public class EmailEnter extends Activity {
 		tv.setText("enter your email here.Your username and password will be sent to this email in case you forget!");
         mail=(EditText)findViewById(R.id.MailInput);
         pmail=mail.getText();
-        
+        //for menu back button
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
 		{
 			ActionBar actionbar=getActionBar();
@@ -55,6 +55,7 @@ public class EmailEnter extends Activity {
 		});
 	}
 
+	//for fetching email from user
 	public void startMailPocket(){
 		
 		try{	

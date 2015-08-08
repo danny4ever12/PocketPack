@@ -31,7 +31,7 @@ public class AddPerson extends Activity {
         name=(EditText)findViewById(R.id.name1);
         give=(EditText)findViewById(R.id.give1);
         borrow=(EditText)findViewById(R.id.borrow1);
-        
+        //for menu back button
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
 		{
 			ActionBar actionbar=getActionBar();
@@ -51,6 +51,7 @@ public class AddPerson extends Activity {
 		
 	}
 
+	//collecting data for adding person
 	@SuppressLint("SimpleDateFormat")
 	public void startDetails()
 	{
@@ -60,6 +61,7 @@ public class AddPerson extends Activity {
 		float rval= gval-bval;
 	    float tmp=-rval;
 		DBoperations DB=new DBoperations(ctx);
+		//fetching current date and time
 		String DateandTime = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
 		DB.putInformation(DB, pname, rval, DateandTime);
 		DB.putDaily(DB, pname, tmp, DateandTime);

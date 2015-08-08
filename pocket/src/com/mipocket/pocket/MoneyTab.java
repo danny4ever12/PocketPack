@@ -74,7 +74,7 @@ public class MoneyTab extends ListActivity {
 				PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
 				PackageManager.DONT_KILL_APP);
 	    
-	    
+	     //for menu back button
 	    if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
 		{
 			ActionBar actionbar=getActionBar();
@@ -85,7 +85,7 @@ public class MoneyTab extends ListActivity {
 	   
 	}
 	
-
+//for custom listview
     private class MoneytabAdapter extends BaseAdapter implements ListAdapter{
 			private LayoutInflater mInflater;
 			 ArrayList<MyDiary> diaries;
@@ -156,7 +156,7 @@ public class MoneyTab extends ListActivity {
 		}
 		
 		 
-		 
+		 //for deleting person
 		 holder.deleteBtn.setOnClickListener(new View.OnClickListener(){
 		        @SuppressLint("SimpleDateFormat")
 				@Override
@@ -175,6 +175,7 @@ public class MoneyTab extends ListActivity {
 		            Toast.makeText(ctx, "Person deleted ", Toast.LENGTH_LONG).show();
 		        }
 		    });
+		 //for modifying person's debts
 		    holder.modBtn.setOnClickListener(new View.OnClickListener(){
 		        @Override
 		        public void onClick(View v) { 

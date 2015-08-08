@@ -33,7 +33,7 @@ public class AddDaily extends ActionBarActivity {
 		 name=(EditText)findViewById(R.id.daily_occtn);
 	     give=(EditText)findViewById(R.id.dailygive);
 	     borrow=(EditText)findViewById(R.id.dailygot);
-	     
+	     //for menu back button
 	     if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
 			{
 				ActionBar actionbar=getActionBar();
@@ -52,6 +52,7 @@ public class AddDaily extends ActionBarActivity {
 				}
 			});
 	}
+	//for adding daily expense transactions
 	@SuppressLint("SimpleDateFormat")
 	public void startDetails()
 	{

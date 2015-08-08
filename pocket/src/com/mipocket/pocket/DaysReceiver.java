@@ -15,6 +15,7 @@ public class DaysReceiver extends BroadcastReceiver {
 	public DaysReceiver() {
 	}
 
+	//for notification and for adding total daily expense to previous day
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		DBoperations DB=new DBoperations(context);

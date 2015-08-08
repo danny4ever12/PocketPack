@@ -35,6 +35,7 @@ public class Update_Debt extends ActionBarActivity {
 	    retMSND=k.getStringExtra("MSND");
 	    getval=Float.valueOf(retMSND);
 	    getNME=k.getStringExtra("MNME");
+	     //for menu back button
 	    if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) 
 		{
 			ActionBar actionbar=getActionBar();
@@ -58,6 +59,7 @@ public class Update_Debt extends ActionBarActivity {
 		});
 	}
 
+	//for updating persons tabs
 	@SuppressLint("SimpleDateFormat")
 	public void startUpdate()
 	{
